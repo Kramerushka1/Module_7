@@ -1,14 +1,9 @@
 ﻿namespace Module_7
 {
     /// <summary>
-    /// Задание 7.1.5
+    /// Задание 7.1.6
     /// </summary>
-    /// Для следующего списка объектов создайте схему классов (объявите нужные классы и установите связи между ними):
-    ///     Apple(яблоко);
-    ///     Banana(банан);
-    ///     Pear(груша);
-    ///     Potato(картофель);
-    ///     Carrot(морковь).
+    /// Реализуйте конструктор, заполняющий поля для следующего класса:
 
     internal class Program
     {
@@ -17,12 +12,20 @@
             Console.WriteLine("Hello, World!");
         }
     }
-    class Food { }
-    class Fruit : Food { }
-    class Vegetable : Food { }
-    class Apple : Fruit { }
-    class Banana : Fruit { }
-    class Pear : Fruit { }
-    class Potato : Vegetable { }
-    class Carrot : Vegetable { }
+    class Obj
+    {
+        private string name;
+        private string owner;
+        private int length;
+        private int count;
+
+        public Obj(string name, string ownerName, int objLength, int count)
+        {
+            this.name = name;
+            owner = ownerName;
+            length = objLength;
+            this.count = count;
+        }
+    }
+
 }
