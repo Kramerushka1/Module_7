@@ -1,12 +1,17 @@
 ﻿namespace Module_7
 {
     /// <summary>
-    /// Задание 7.2.5
+    /// Задание 7.2.7
     /// </summary>
-    /// Вернитесь к заданию 7.2.3 и дополните его код так, 
-    /// чтобы для вызова следующего следующего кода в консоль выводилось 2 сообщения 
-    ///     сначала "Метод класса BaseClass", 
-    ///     а затем "Метод класса DerivedClass" 
+    /// Создайте схему классов A, B, C, D и E таким образом, чтобы B наследовался от A, С от A, D от B и E от C. 
+    /// А также:
+    ///     Добавьте в класс A виртуальный метод Display(void тип, без параметров), который будет выводить в консоль "A".
+    ///     В классе B скройте этот метод и сделайте так, чтобы в консоль выводилось "B".
+    ///     Для класса C переопределите метод Display, чтобы в консоли было "C".
+    ///     Для D снова скройте метод.
+    ///     В классе E также скройте метод.
+
+
 
 
 
@@ -17,20 +22,39 @@
            
         }
     }
-    class BaseClass
+    class A
     {
         public virtual void Display()
         {
-            Console.WriteLine("Метод класса BaseClass");
+            Console.WriteLine("A");
         }
     }
-    class DerivedClass : BaseClass
+    class B : A
+    {
+        public new void Display()
+        {
+            Console.WriteLine("B");
+        }
+    }
+    class C : A
     {
         public override void Display()
         {
-            base.Display(); 
-            Console.WriteLine("Метод класса DerivedClass");
+            Console.WriteLine("C");
         }
     }
-
+    class D : B
+    {
+        public new void Display()
+        {
+            Console.WriteLine("D");
+        }
+    }
+    class E : C
+    {
+        public new void Display()
+        {
+            Console.WriteLine("E");
+        }
+    }
 }
