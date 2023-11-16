@@ -1,11 +1,10 @@
 ﻿namespace Module_7
 {
     /// <summary>
-    /// Задание 7.2.12
+    /// Задание 7.2.14
     /// </summary>
-    /// Для класса Obj перегрузите операторы + и -, 
-    /// чтобы результатом работы оператора был новый экземпляр класса Obj, 
-    /// а операции производились над полем Value.
+    /// Для следующего класса напишите индексатор, 
+    /// для типа параметра используйте int:
 
     class Program
     {
@@ -14,23 +13,25 @@
            
         }
     }
-    class Obj
+    class IndexingClass
     {
-        public int Value;
+        private int[] array;
 
-        public static Obj operator +(Obj a, Obj b)
+        public IndexingClass(int[] array)
         {
-            return new Obj
-            {
-                Value = a.Value + b.Value
-            };
+            this.array = array;
         }
-        public static Obj operator -(Obj a, Obj b)
+        public int this[int index]
         {
-            return new Obj
+            get
             {
-                Value = a.Value - b.Value
-            };
+                return array[index];
+            }
+
+            set
+            {
+                array[index] = value;
+            }
         }
     }
 }
