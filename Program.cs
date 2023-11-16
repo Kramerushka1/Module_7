@@ -1,10 +1,14 @@
 ﻿namespace Module_7
 {
     /// <summary>
-    /// Задание 7.2.4
+    /// Задание 7.2.5
     /// </summary>
-    /// Измените свойство Counter так, чтобы его можно было переопределить в классе DerivedClass.
-    /// Переопределите данное свойство, ограничив занесения в него чисел меньше 0.
+    /// Вернитесь к заданию 7.2.3 и дополните его код так, 
+    /// чтобы для вызова следующего следующего кода в консоль выводилось 2 сообщения 
+    ///     сначала "Метод класса BaseClass", 
+    ///     а затем "Метод класса DerivedClass" 
+
+
 
     class Program
     {
@@ -15,29 +19,18 @@
     }
     class BaseClass
     {
-        public virtual int Counter
+        public virtual void Display()
         {
-            get;
-            set;
+            Console.WriteLine("Метод класса BaseClass");
+        }
+    }
+    class DerivedClass : BaseClass
+    {
+        public override void Display()
+        {
+            base.Display(); 
+            Console.WriteLine("Метод класса DerivedClass");
         }
     }
 
-    class DerivedClass : BaseClass
-    {
-        public override int Counter
-        {
-            get
-            {
-                return Counter;
-            }
-            set
-            {
-                if (value >= 0)
-                {
-                    Counter = value;
-                }
-            }
-        }
-    }
-        
 }
