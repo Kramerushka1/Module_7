@@ -1,10 +1,16 @@
 ﻿namespace Module_7
 {
     /// <summary>
-    /// Задание 7.2.14
+    /// Задание 7.3.3
     /// </summary>
-    /// Для следующего класса напишите индексатор, 
-    /// для типа параметра используйте int:
+    /// Создайте классы для следующих объектов компьютера: 
+    ///     процессор (Processor), 
+    ///     материнская карта (MotherBoard), 
+    ///     видеокарта (GraphicCard). 
+    /// Унаследуйте их от класса ComputerPart.
+    /// Добавьте в класс ComputerPart абстрактный метод Work без параметров и с типом void.
+
+
 
     class Program
     {
@@ -13,25 +19,21 @@
            
         }
     }
-    class IndexingClass
+    
+    abstract class ComputerPart
     {
-        private int[] array;
-
-        public IndexingClass(int[] array)
-        {
-            this.array = array;
-        }
-        public int this[int index]
-        {
-            get
-            {
-                return array[index];
-            }
-
-            set
-            {
-                array[index] = value;
-            }
-        }
+        public abstract void Work ();
+    }
+    class Processor : ComputerPart
+    {
+        public abstract void Work() { }
+    }
+    class MotherBoard : ComputerPart
+    {
+        public abstract void Work() { }
+    }
+    class GraphicCard : ComputerPart
+    {
+        public abstract void Work() { }
     }
 }
