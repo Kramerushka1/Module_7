@@ -1,39 +1,48 @@
 ﻿namespace Module_7
 {
     /// <summary>
-    /// Задание 7.3.3
+    /// Задание 7.2.4
     /// </summary>
-    /// Создайте классы для следующих объектов компьютера: 
-    ///     процессор (Processor), 
-    ///     материнская карта (MotherBoard), 
-    ///     видеокарта (GraphicCard). 
-    /// Унаследуйте их от класса ComputerPart.
-    /// Добавьте в класс ComputerPart абстрактный метод Work без параметров и с типом void.
+    /// Измените свойство Counter так, чтобы его можно было переопределить в классе DerivedClass. 
+    /// Переопределите данное свойство, ограничив занесения в него чисел меньше 0.
 
+    class BaseClass
+    {
+        public virtual int Counter
+        {
+            get;
+            set;
+        }
+    }
 
+    class DerivedClass : BaseClass
+    {
+        private int counter;
+        public override int Counter
+        {
+            get
+            {
+                return counter;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("Pанесения в него чисел меньше 0 невозможно");
+                }
+                else
+                {
+                    counter = value;
+                }
+            }
+        }
+    }
 
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-           
+            
         }
-    }
-    
-    abstract class ComputerPart
-    {
-        public abstract void Work ();
-    }
-    class Processor : ComputerPart
-    {
-        public abstract void Work() { }
-    }
-    class MotherBoard : ComputerPart
-    {
-        public abstract void Work() { }
-    }
-    class GraphicCard : ComputerPart
-    {
-        public abstract void Work() { }
     }
 }
