@@ -3,12 +3,14 @@
 namespace Module_7
 {
     /// <summary>
-    /// Задание 7.6.6
-    /// </summary>    
-    /// Реализуйте класс-обобщение Record, у которого будут два универсальных параметра: 
-    ///     один — для идентификатора записи (Id), 
-    ///     другой — для значения записи (Value). 
-    /// Также в классе реализуйте поле Date типа DateTime.
+    /// Задание 7.6.7
+    /// </summary>   
+    /// Добавьте к схеме классов автомобиля следующие классы частей автомобиля: 
+    ///     Battery, 
+    ///     Differential, 
+    ///     Wheel. 
+    /// Также добавьте в класс Car виртуальный обобщённый метод без реализации — ChangePart, 
+    /// который будет принимать один параметр — newPart универсального типа.
 
     class Program
     {
@@ -17,10 +19,13 @@ namespace Module_7
 
         }
     }
-    /*
-    class Car<T>
+    class Car<T1>
     {
-        public T Engine;
+        public T1 Engine;
+        public virtual void ChangePart<T2>(T2 newPart)
+        {
+
+        }
     }
     class ElectricEngine
     {
@@ -30,11 +35,16 @@ namespace Module_7
     {
 
     }
-    */
-    class Record <T1, T2>
+    class Battery
     {
-        public T1 Id;
-        public T2 Value;
-        public DateTime Date;
+
+    }
+    class Differential
+    {
+
+    }
+    class Wheel
+    {
+
     }
 }
