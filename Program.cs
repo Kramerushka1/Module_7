@@ -3,15 +3,12 @@
 namespace Module_7
 {
     /// <summary>
-    /// Задание 7.6.7
+    /// Задание 7.6.9
     /// </summary>   
-    /// Добавьте к схеме классов автомобиля следующие классы частей автомобиля: 
-    ///     Battery, 
-    ///     Differential, 
-    ///     Wheel. 
-    /// Также добавьте в класс Car виртуальный обобщённый метод без реализации — ChangePart, 
-    /// который будет принимать один параметр — newPart универсального типа.
-
+    /// Установите ограничения на универсальные типы в классе Car. 
+    /// Такие, чтобы поле Engine могло принимать тип ElectricEngine и GasEngine, 
+    /// а параметр newPart метода ChangePart мог бы принимать только типы частей машины (Battery, Differential, Wheel).
+    /// Для этого вам может понадобиться использовать один из ранее изученных принципов ООП.
     class Program
     {
         static void Main(string[] args)
@@ -19,32 +16,16 @@ namespace Module_7
 
         }
     }
-    class Car<T1>
+    class Car<T1> where T1 : Engine
     {
         public T1 Engine;
-        public virtual void ChangePart<T2>(T2 newPart)
-        {
-
-        }
+        public virtual void ChangePart<T2>(T2 newPart) where T2 : CarPart { }
     }
-    class ElectricEngine
-    {
-
-    }
-    class GasEngine
-    {
-
-    }
-    class Battery
-    {
-
-    }
-    class Differential
-    {
-
-    }
-    class Wheel
-    {
-
-    }
+    class ElectricEngine : Engine { }
+    class GasEngine : Engine { } 
+    class Battery : CarPart{ }
+    class Differential : CarPart { }
+    class Wheel : CarPart { }
+    class Engine { }
+    class CarPart { }
 }
