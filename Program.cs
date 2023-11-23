@@ -1,14 +1,12 @@
-﻿using System.Threading.Channels;
+﻿using System.Runtime.CompilerServices;
+using System.Threading.Channels;
 
 namespace Module_7
 {
     /// <summary>
-    /// Задание 7.6.12
-    /// </summary>   
-    /// С учётом полученных знаний по наследованию обобщений, дополните схему классов автомобиля, 
-    /// добавив классы для электромобиля и бензинового — ElectricCar и GasCar.
-    /// Подумайте, какой класс или классы можно сделать абстрактными.
-    /// Сделайте абстрактными их и их члены(по возможности).
+    /// Модуль 7. Итоговое задание
+    /// </summary>
+
     class Program
     {
         static void Main(string[] args)
@@ -16,30 +14,80 @@ namespace Module_7
 
         }
     }
-    abstract class Car<TEngine> where TEngine : Engine
+    class Order<TPerson, TOrderList> 
+        where TPerson : Person
+        where TOrderList : OrderList<Product>
     {
-        public TEngine Engine;
-        public virtual void ChangePart<TPart>(TPart newPart) where TPart : CarPart { }
+        private int orderNumber;
+        private TPerson? customer;
+
+        public DateTime orderDate = DateTime.Now;
+
+        private TOrderList orderList;
+
+        public deliveryType;
+
+        private float totalPrice;
+
+        public void DisplayAddress()
+        {
+            Console.WriteLine(Delivery.address);
+        }
     }
-    class ElectricCar : Car<ElectricEngine> 
+    abstract class Customer
     {
-        public override void ChangePart<TPart>(TPart newPart)
+        private string name;
+        private string phoneNumber;
+    }
+    class Person : Customer 
+    {
+        private bool hasPremiumService;
+
+        private string defaultHomeAddress;
+        private string defaultPickPointAddress;
+        private string defaultShopAddress;
+    }
+    class Organisation : Customer 
+    {
+        private string organisationAddress;
+        private bool hasPremiumService;
+    }
+    class Product
+    {
+        public string productName;
+        public float productPrice;
+        public string productDescription;
+        public bool isOnSale;
+        public bool hasDiscount;
+    }
+    class OrderList<TProduct> where TProduct : Product
+    {
+        public TProduct product;
+        private int productCount;
+        private float totalPrice;
+
+        public OrderList() 
         {
 
         }
     }
-    class GasCar : Car<GasEngine>
+    class PremiumService { }
+    abstract class Delivery
     {
-        public override void ChangePart<TPart>(TPart newPart)
+        public string address;
+        public float price;
+    }
+    class HomeDelivery : Delivery { }
+    class PickPointDelivery : Delivery { }
+    class ShopDelivery : Delivery { }
+    /*
+    class OrderNumberList
+    {
+        private static int orderNumber;
+        private static int NewOrder()
         {
-
+            return ++orderNumber;
         }
     }
-    class ElectricEngine : Engine { }
-    class GasEngine : Engine { } 
-    class Battery : CarPart{ }
-    class Differential : CarPart { }
-    class Wheel : CarPart { }
-    class Engine { }
-    class CarPart { }
+    */
 }
